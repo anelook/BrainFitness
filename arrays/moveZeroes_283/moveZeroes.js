@@ -42,16 +42,13 @@ var moveZeroes = function(nums) {
 };
 
 /* moving non-zero elements and appending zeros to the end within one loop*/
-/* more optimal by number of operations, nevertheless performs slower */
 var moveZeroes = function(nums) {
-    let lastNonZeroFoundAt = 0;
-    for (let i = 0; i < nums.length; i++) {
-        if (nums[i] != 0) {
-            if (i !== lastNonZeroFoundAt) {
-                nums[lastNonZeroFoundAt] = nums[i];
-                nums[i] = 0;
-            }
-            lastNonZeroFoundAt++;
+    for (let i = 0, j = 0; i < nums.length; i++) { // j => lastNonZeroFoundAt
+        if (nums[i]) {
+            const temp = nums[i];
+            nums[i] = nums[j];
+            nums[j] = temp;
+            j++;
         }
     }
 };
