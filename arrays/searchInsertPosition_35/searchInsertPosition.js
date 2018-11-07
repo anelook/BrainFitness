@@ -92,3 +92,20 @@ var searchInsert = function(nums, target) {
     return lo;
 };
 
+/* improved 3. Setting hi value to the length of array (max index + 1)  */
+
+var searchInsert = function(nums, target) {
+    let lo = 0;
+    let hi = nums.length;
+
+    while(lo < hi) {
+        const mid = ~~(lo + (hi - lo)/2);
+        if (nums[mid] < target) {
+            lo = mid + 1;
+        } else {
+            hi = mid;
+        }
+    }
+
+    return lo;
+};
