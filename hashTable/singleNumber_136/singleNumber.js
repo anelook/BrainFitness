@@ -52,3 +52,16 @@ var singleNumber = function(nums) {
     return 2 * sumInd - sumAll;
 };
 
+/** using bit manipulation
+ * If we take XOR of zero and some bit, it will return that bit
+ a ^ 0 = a
+ If we take XOR of two same bits, it will return 0
+ a ^ a = 0
+ * */
+var singleNumber = function(nums) {
+    let r = nums[0];
+    for (let i = 1; i< nums.length; i++) {
+        r = r^nums[i];
+    }
+    return r;
+};
