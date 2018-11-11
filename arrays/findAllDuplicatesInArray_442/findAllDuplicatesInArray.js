@@ -29,7 +29,7 @@ var findDuplicates = function(nums) {
  * Refactored faster solution. Since 1 ≤ a[i] ≤ n (n = size of array)
  * we can use values in the array as markers if we saw a value already
  * Time complexity O(n)
- * Space complexity O(1)
+ * Space complexity O(1) ????
  */
 var findDuplicates = function(nums) {
     const res = [];
