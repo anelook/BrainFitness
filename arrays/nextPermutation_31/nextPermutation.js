@@ -59,3 +59,61 @@ var nextPermutation = function(nums) {
         nums[nums.length + p - i] = tmp;
     }
 };
+
+
+/**
+ *  Also liked this solution - https://leetcode.com/problems/next-permutation/discuss/138999/Share-my-3-step-JavaScript-solution
+  const nextPermutation = nums => {
+  const n = nums.length;
+
+  // Step 1. scan from right and find the first digit that is less than its right
+  for (let i = n - 2; i >= 0; i--) {
+    if (nums[i] < nums[i + 1]) {
+      // Step 2. scan from right and find the digit that is larger than nums[i]
+      for (let j = n - 1; j > i; j--) {
+        if (nums[j] > nums[i]) {
+          // Step 3. swap nums[i] and nums[j], reverse from i+1
+          swap(nums, i, j);
+          reverse(nums, i + 1, n - 1);
+          return;
+        }
+      }
+    }
+  }
+
+  nums.reverse();
+};
+
+ const swap = (nums, i, j) => ([nums[i], nums[j]] = [nums[j], nums[i]]);
+
+ const reverse = (nums, start, end) => {
+  while (start < end) {
+    swap(nums, start++, end--);
+  }
+};
+ *
+ *
+ * /
+
+
+ /**
+ TODO: check this one
+ var nextPermutation = function(nums) {
+    let j = nums.length - 1, i = j - 1;
+    while (nums[i + 1] <= nums[i]) i--;
+    if (~i) {
+        while (nums[j] <= nums[i]) j--;
+        swap(nums, i, j);
+    }
+    for (let k = i + 1, stop = (i + nums.length) / 2; k < stop; k++) {
+        swap(nums, k, nums.length - k + i);
+    }
+};
+
+ function swap(nums, i, j) {
+    let temp = nums[i];
+    nums[i] = nums[j];
+    nums[j] = temp;
+}
+
+ */
