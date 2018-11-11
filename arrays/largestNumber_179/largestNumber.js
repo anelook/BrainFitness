@@ -55,6 +55,6 @@ var largestNumber = function(nums) {
  * there is no need to padEnd and overthink which number is better to go first
  * just compare what is bigger ab or ba */
 var largestNumber = function(nums) {
-    const strs = nums.map(n => n.toString()).sort((n1, n2) => Number(n2 + n1) - Number(n1 + n2));
+    const strs = nums.map(String).sort((n1, n2) => (n2 + n1) - (n1 + n2));
     return strs[0] === '0' ? '0' : strs.join('');
 };
