@@ -28,13 +28,17 @@
  * O(1)
  */
 var firstMissingPositive = function(nums) {
+    // get rid of negative numbers by replacing them with zeros
     nums.forEach((v, i) => v < 0 ? nums[i] = 0 : 0);
-
+    // use value at (v-1) as a marker if we encountered integer (i + 1).
+    // by making targeted value negative
+    // for 0s make the value negative of 'v' - to avoid issues in farther iterations
     nums.forEach(v => {
         const val = Math.abs(v);
         if (v !== 0 && nums[val-1] !== undefined && nums[val-1] >= 0)
             nums[val-1] = nums[val-1] === 0 ? - val : - nums[val-1]
     });
-
+    // find index of the first positive value
+    // in case of  input as [1,2,3 ] go through array one more time, find the maximum and return max + 1;
     return nums.findIndex(v => v >= 0)  + 1 || Math.abs(nums.reduce((acc, v) => v < acc ? v : acc, 0)) + 1;
 };
