@@ -17,7 +17,7 @@
  */
 var trailingZeroes = function(n) {
     let sum = 0;
-    for (let i = ~~(Math.log(n)/Math.log(5)); i >= 1; i--) { //calculate log of base 5 
+    for (let i = ~~(Math.log(n)/Math.log(5)); i >= 1; i--) { //calculate log of base 5
         sum += ~~(n / Math.pow(5, i));
     }
     return sum;
