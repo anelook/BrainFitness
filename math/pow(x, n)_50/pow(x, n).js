@@ -49,7 +49,7 @@ var myPow = function(x, n) {
     return rec(x, n , h);
 };
 
-/** removing unnecessary steps*/
+/** removing unnecessary steps. I don;t need H, since I won't come back to the stored values.*/
 
 var myPow = function(x, n) {
     if(x === 0 || n === 0) { return 1; }
@@ -57,9 +57,11 @@ var myPow = function(x, n) {
     if (n === -1) { return 1/x; }
     if (n % 2 ===0) {
         const t = myPow(x, n/2);
-        return t * t;
+        return t * t; // the only time we need value t
     }
     return x * myPow(x, n-1)
 };
+
+/**iterative**/
 
 
