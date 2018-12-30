@@ -23,3 +23,29 @@ var isValid = function (s) {
     }
     return r && !l.length;
 };
+
+
+/**
+ * Solution with stack
+ * @param {string} s
+ * @return {boolean}
+ */
+var isValid = function (s) {
+    let b = {
+        '(': ')',
+        '{': '}',
+        '[': ']'
+    };
+
+    const expected = [];
+
+    for (let i = 0; i< s.length; i++) {
+        if(s[i] === b[expected[expected.length - 1]]) {
+            expected.pop();
+        } else {
+            expected.push(s[i])
+        }
+    }
+
+    return expected.length === 0;
+};
